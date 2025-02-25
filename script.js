@@ -53,30 +53,36 @@ function findWinner() {
         }
     });
 
-    // Store daily winner in local storage
+    // Display All Predictions
+    let tableBody = document.getElementById("prediction-table");
+    tableBody.innerHTML = "";
+    
+    predictions.forEach(entry => {
+        let row = `<tr><td>${entry.name}</td><td>${entry.prediction}</td></tr>`;
+        tableBody.innerHTML += row;
+    });
+
+    document.getElementById("market-turnover-value").innerText = marketTurnover;
+    document.getElementById("all-predictions").style.display = "block";
+
+    // Store daily winner
     const today = new Date().toLocaleDateString();
     dailyWins[today] = closest;
     localStorage.setItem("dailyWins", JSON.stringify(dailyWins));
 
-    // Display Winner with Animation
-    const winnerDisplay = document.getElementById("winnerDisplay");
-    winnerDisplay.textContent = `Today's Winner: ${closest} 🎉`;
-    winnerDisplay.classList.add("winner");
+    document.getElementById("winnerDisplay").textContent = `Today's Winner: ${closest} 🎉`;
+    document.getElementById("winnerDisplay").classList.add("winner");
 
-    // Check for Grand Winner (After 30 Days)
+    // Check for Grand Winner
     checkGrandWinner();
 }
 
-// Function to Determine Grand Winner
 function checkGrandWinner() {
     let winCount = {};
-
-    // Count how many times each user has won
     Object.values(dailyWins).forEach(name => {
         winCount[name] = (winCount[name] || 0) + 1;
     });
 
-    // Find user with max wins
     let grandWinner = Object.keys(winCount).reduce((a, b) => winCount[a] > winCount[b] ? a : b, "");
 
     if (Object.keys(dailyWins).length >= 30) {

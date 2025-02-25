@@ -6,7 +6,8 @@ body {
 
 .container {
     background: white;
-    width: 50%;
+    max-width: 600px;
+    width: 90%;
     margin: 20px auto;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -25,7 +26,8 @@ input, select, button {
     display: block;
     margin: 10px auto;
     padding: 10px;
-    width: 80%;
+    width: 100%;
+    max-width: 400px;
     border-radius: 5px;
     border: 1px solid #ccc;
 }
@@ -60,11 +62,34 @@ button:hover {
 
 /* Animation for grand winner */
 @keyframes grandWinnerAnimation {
-    0% { color: gold; transform: rotate(0deg); }
-    50% { color: orange; transform: rotate(10deg); }
-    100% { color: gold; transform: rotate(0deg); }
+    0% { color: gold; transform: rotate(0deg) scale(1); }
+    50% { color: orange; transform: rotate(5deg) scale(1.1); }
+    100% { color: gold; transform: rotate(0deg) scale(1); }
 }
 
 .grand-winner {
     animation: grandWinnerAnimation 3s infinite;
+}
+
+/* prediction table */
+#predictions-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px auto;
+}
+
+#predictions-table th, #predictions-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+#predictions-table th {
+    background-color: #28a745;
+    color: white;
+}
+
+.highlight {
+    background-color: gold !important;
+    font-weight: bold;
 }
