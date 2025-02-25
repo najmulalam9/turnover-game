@@ -1,0 +1,70 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f4f4f4;
+}
+
+.container {
+    background: white;
+    width: 50%;
+    margin: 20px auto;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+h1, h2 {
+    color: #333;
+}
+
+form {
+    margin: 15px 0;
+}
+
+input, select, button {
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    width: 80%;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    background-color: #28a745;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+#winnerDisplay, #grandWinnerDisplay {
+    font-size: 20px;
+    font-weight: bold;
+    color: #000;
+}
+
+/* Animation for the daily winner */
+@keyframes winnerAnimation {
+    0% { color: red; transform: scale(1); }
+    50% { color: blue; transform: scale(1.2); }
+    100% { color: green; transform: scale(1); }
+}
+
+.winner {
+    animation: winnerAnimation 2s infinite;
+}
+
+/* Animation for grand winner */
+@keyframes grandWinnerAnimation {
+    0% { color: gold; transform: rotate(0deg); }
+    50% { color: orange; transform: rotate(10deg); }
+    100% { color: gold; transform: rotate(0deg); }
+}
+
+.grand-winner {
+    animation: grandWinnerAnimation 3s infinite;
+}

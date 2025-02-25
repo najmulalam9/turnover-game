@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turnover Prediction Game</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Turnover Prediction Game</h1>
+
+        <!-- Prediction Input Section -->
+        <h2>Enter Your Prediction</h2>
+        <form id="predictionForm">
+            <label for="name">Select Your Name:</label>
+            <select id="name" required>
+                <option value="Afsar">Afsar</option>
+                <option value="Anowar">Anowar</option>
+                <option value="Hasan">Hasan</option>
+                <option value="Ismail">Ismail</option>
+                <option value="Naimur">Naimur</option>
+                <option value="Najmul">Najmul</option>
+                <option value="Shakil">Shakil</option>
+            </select>
+            <label for="prediction">Turnover Prediction:</label>
+            <input type="number" id="prediction" required>
+            <button type="submit">Submit Prediction</button>
+        </form>
+
+        <!-- Market Turnover Input (Only for Shakil) -->
+        <h2>Enter Market Turnover (Shakil Only)</h2>
+        <form id="marketForm">
+            <label for="marketTurnover">Market Turnover:</label>
+            <input type="number" id="marketTurnover" required>
+            <button type="submit">Submit Market Turnover</button>
+        </form>
+
+        <!-- Display Daily Winner -->
+        <h2>Daily Winner</h2>
+        <p id="winnerDisplay">Waiting for market turnover...</p>
+
+        <!-- Display Grand Winner (After 30 Days) -->
+        <h2>Grand Winner (30 Days Record)</h2>
+        <p id="grandWinnerDisplay">Tracking daily wins...</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
